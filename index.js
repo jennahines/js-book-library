@@ -1,3 +1,6 @@
+/**
+ * Book 
+ */
 class Book {
 	constructor( title, author, pageCount, isRead ) {
 		this.title = title;
@@ -7,6 +10,9 @@ class Book {
 	}
 }
 
+/**
+ * Adds book to library based on submitted form field values
+ */
 function addBookToLibrary() {
 	if (
 		$titleInput.value === '' 
@@ -23,6 +29,11 @@ function addBookToLibrary() {
 	}
 }
 
+/**
+ * Remove the book at the provided index from the library array
+ * 
+ * @param {number} index 
+ */
 function removeBookFromLibrary( index ) {
 	library.splice( index, index + 1 );
 
@@ -30,6 +41,11 @@ function removeBookFromLibrary( index ) {
 	render();
 }
 
+/**
+ * Change the read status for a book at the provided index in the library array.
+ * 
+ * @param {number} index 
+ */
 function toggleReadStatus( index ) {
 	library[index].isRead = !library[index].isRead;
 
@@ -37,6 +53,13 @@ function toggleReadStatus( index ) {
 	render();
 }
 
+/**
+ * Finds the specified title in the library array 
+ * 
+ * @param {array} libraryArray 
+ * @param {string} title 
+ * @returns {number} index of the found book
+ */
 function findBook( libraryArray, title ) {
 	if ( libraryArray.length === 0 || libraryArray === null ) {
 		return;
@@ -47,13 +70,21 @@ function findBook( libraryArray, title ) {
 			return libraryArray.indexOf( book );
 		}
     }
+
+	return;
 }
 
+/**
+ * Update localstorage with current value of library array
+ */
 function updateStorage() {
 	console.log(library);
 	localStorage.setItem( 'library', JSON.stringify( library ) );
 }
 
+/**
+ * Check if localstorage exists for library or set default value
+ */
 function checkStorage() {
 	if ( localStorage.getItem( 'library' ) ) {
 		if ( localStorage.getItem( 'library' ) === '[]') {
@@ -72,6 +103,9 @@ function checkStorage() {
 	}
 }
 
+/**
+ * Clear the form fields
+ */
 function clearForm() {
 	$titleInput.value = '';
 	$authorInput.value = '';
@@ -79,6 +113,9 @@ function clearForm() {
 	$readInput.checked = false;
 }
 
+/**
+ * Render books to page
+ */
 function render() {
 	$libraryContainer.innerHTML = '';
 	checkStorage();
