@@ -1,0 +1,70 @@
+/* ==========================================================================
+BOOKS
+========================================================================== */
+#books {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.book-item p {
+	margin-bottom: .5rem;
+}
+.book-item p:not(:last-of-type) strong {
+	display: block;
+}
+
+.book-item svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	display: inline-block;
+}
+
+.svg-check {color: darkslategray;}
+.svg-xmark {color: darkred;}
+
+.book-item .button {
+	font-size: .875rem;
+	background-color: transparent;
+	border: 2px solid darkslategray;
+	color: darkslategray;
+	width: 100%;
+}
+
+.book-item .button:hover {
+	color: white;
+	border-color: darkslateblue;
+}
+
+.book-item .button + .button {
+	margin-top: .5rem;
+}
+
+/* ==========================================================================
+FORMS
+========================================================================== */
+.form__row {
+	margin-bottom: 1rem;
+	display: grid;
+	grid-template-columns: 1fr 6fr;
+	align-items: center;
+}
+.form__row--single-column {
+	grid-template-columns: 1fr;
+}
+
+[type="submit"],
+button,
+.button {
+	background-color: darkslategray;
+	color: white;
+	padding: .5rem 2rem;
+	text-align: center;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: .03rem;
+}
+[type="submit"]:hover,
+button:hover,
+.button:hover {
+	background-color: darkslateblue;
+}
